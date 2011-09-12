@@ -1,0 +1,203 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: SEO Pagebar\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-04-23 17:07+0100\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Sebastian Schmiedel <info@flexib.de>\n"
+"Language-Team: Sebastian Schmiedel <info@flexib.de>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: German\n"
+"X-Poedit-Country: GERMANY\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: ./\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: seopagebar-options.php:17
+#: seopagebar-options.php:272
+msgid "Einstellungen speichern"
+msgstr ""
+
+#: seopagebar-options.php:50
+#: seopagebar-options.php:75
+#: seopagebar-options.php:77
+msgid "SEO Pagebar Einstellungen"
+msgstr ""
+
+#: seopagebar-options.php:55
+msgid "Die neuen Einstellungen wurden &uuml;bernommen!"
+msgstr ""
+
+#: seopagebar-options.php:60
+msgid "Die neuen Einstellungen wurden nicht &uuml;bernommen!"
+msgstr ""
+
+#: seopagebar-options.php:80
+msgid "Sprache"
+msgstr ""
+
+#: seopagebar-options.php:83
+msgid "Deutsch"
+msgstr ""
+
+#: seopagebar-options.php:84
+msgid "Englisch"
+msgstr ""
+
+#: seopagebar-options.php:85
+msgid "Spanisch"
+msgstr ""
+
+#: seopagebar-options.php:90
+msgid "Text f&uuml;r vorw&auml;rts bl&auml;ttern"
+msgstr ""
+
+#: seopagebar-options.php:96
+msgid "Text f&uuml;r r&uuml;ckw&auml;rts bl&auml;ttern"
+msgstr ""
+
+#: seopagebar-options.php:102
+msgid "Leerr&auml;ume zwischen Pagebar-Elementen"
+msgstr ""
+
+#: seopagebar-options.php:108
+msgid "CSS-Klasse f&uuml;r SEO Pagebar"
+msgstr ""
+
+#: seopagebar-options.php:114
+msgid "CSS-Klasse f&uuml;r Links"
+msgstr ""
+
+#: seopagebar-options.php:120
+msgid "Links mit Nofollow-Tag?"
+msgstr ""
+
+#: seopagebar-options.php:122
+#: seopagebar-options.php:129
+#: seopagebar-options.php:142
+#: seopagebar-options.php:150
+#: seopagebar-options.php:169
+#: seopagebar-options.php:203
+#: seopagebar-options.php:226
+#: seopagebar-options.php:233
+msgid "Ja"
+msgstr ""
+
+#: seopagebar-options.php:123
+#: seopagebar-options.php:130
+#: seopagebar-options.php:143
+#: seopagebar-options.php:151
+#: seopagebar-options.php:170
+#: seopagebar-options.php:204
+#: seopagebar-options.php:227
+#: seopagebar-options.php:234
+msgid "Nein"
+msgstr ""
+
+#: seopagebar-options.php:127
+msgid "Mouseover bei Links"
+msgstr ""
+
+#: seopagebar-options.php:134
+msgid "Mouseovertext"
+msgstr ""
+
+#: seopagebar-options.php:140
+msgid "Mouseover Text automatisch setzen mit Kategorie/Tag/Suchwort"
+msgstr ""
+
+#: seopagebar-options.php:144
+msgid "wenn ausgef&uuml;llt, wird eigener Mouseovertext ignoriert"
+msgstr ""
+
+#: seopagebar-options.php:148
+msgid "Soll die SEO Pagebar angezeigt werden, wenn es nur eine Seite gibt?"
+msgstr ""
+
+#: seopagebar-options.php:155
+msgid "Wieviel Seiten sollen angezeigt werden?"
+msgstr ""
+
+#: seopagebar-options.php:164
+msgid "Seoeinstellungen - &Uuml;berschrift der SEO Pagebar"
+msgstr ""
+
+#: seopagebar-options.php:167
+msgid "Soll eine &Uuml;berschrift angezeigt werden?"
+msgstr ""
+
+#: seopagebar-options.php:174
+msgid "&Uuml;berschrift"
+msgstr ""
+
+#: seopagebar-options.php:180
+msgid "&Uuml;berschrift verlinkt zu"
+msgstr ""
+
+#: seopagebar-options.php:186
+msgid "HTML-Tag um die &Uuml;berschrift"
+msgstr ""
+
+#: seopagebar-options.php:201
+msgid "Link mit Nofollow Tag?"
+msgstr ""
+
+#: seopagebar-options.php:211
+#: seopagebar-options.php:262
+msgid "Oder ganze Zeile eingeben"
+msgstr ""
+
+#: seopagebar-options.php:214
+#: seopagebar-options.php:265
+msgid "wenn ausgef&uuml;llt, wird der Rest ignoriert"
+msgstr ""
+
+#: seopagebar-options.php:221
+msgid "Seoeinstellungen - Untertitel der SEO Pagebar"
+msgstr ""
+
+#: seopagebar-options.php:224
+msgid "Soll ein Untertitel angezeigt werden?"
+msgstr ""
+
+#: seopagebar-options.php:231
+msgid "Soll automatisch die Kategorie, das Suchwort oder Tag gesetzt werden?"
+msgstr ""
+
+#: seopagebar-options.php:238
+msgid "Untertitel"
+msgstr ""
+
+#: seopagebar-options.php:244
+msgid "HTML-Tag um den Untertitel"
+msgstr ""
+
+#: seopagebar-options.php:272
+msgid "Abbrechen"
+msgstr ""
+
+#: seopagebar.php:30
+msgid "seopagebar"
+msgstr ""
+
+#: seopagebar.php:30
+msgid "SEO Pagebar"
+msgstr ""
+
+#: seopagebar.php:239
+#: seopagebar.php:249
+#: seopagebar.php:250
+#: seopagebar.php:258
+#: seopagebar.php:259
+#: seopagebar.php:272
+#: seopagebar.php:283
+#: seopagebar.php:284
+#: seopagebar.php:298
+#: seopagebar.php:308
+#: seopagebar.php:309
+msgid "Seite"
+msgstr ""
+

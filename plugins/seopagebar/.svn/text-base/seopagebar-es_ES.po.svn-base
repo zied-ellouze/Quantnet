@@ -1,0 +1,344 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: SEO Pagebar\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-06-15 20:46+0100\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Oliver Bockelmann <fob@fob-marketing.de>\n"
+"Language-Team: Sebastian Schmiedel <info@flexib.de>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Spanish\n"
+"X-Poedit-Country: GERMANY\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: ./\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: seopagebar-options.php:18
+#: seopagebar-options.php:155
+#: seopagebar-options.php:340
+#: seopagebar-options_old.php:18
+#: seopagebar-options_old.php:154
+#: seopagebar-options_old.php:353
+msgid "Einstellungen speichern"
+msgstr "guardar ajustes"
+
+#: seopagebar-options.php:49
+#: seopagebar-options.php:153
+#: seopagebar-options.php:158
+#: seopagebar-options_old.php:49
+#: seopagebar-options_old.php:152
+#: seopagebar-options_old.php:157
+msgid "SEO Pagebar Einstellungen"
+msgstr "ajustes SEO Pagebar"
+
+#: seopagebar-options.php:54
+#: seopagebar-options_old.php:54
+msgid "Die neuen Einstellungen wurden &uuml;bernommen!"
+msgstr "¡ajustes actualizados!"
+
+#: seopagebar-options.php:59
+#: seopagebar-options_old.php:59
+msgid "Die neuen Einstellungen wurden nicht &uuml;bernommen!"
+msgstr "no se han podido actualizar los ajustes"
+
+#: seopagebar-options.php:65
+#: seopagebar-options.php:155
+#: seopagebar-options.php:340
+#: seopagebar-options_old.php:65
+#: seopagebar-options_old.php:154
+#: seopagebar-options_old.php:353
+msgid "Standardeinstellungen wiederherstellen"
+msgstr "Recuperar ajustes estandard"
+
+#: seopagebar-options.php:96
+#: seopagebar-options_old.php:96
+msgid "Die Standardeinstellungen wurden wiederhergestellt!"
+msgstr "Ajustes estandard recuperados"
+
+#: seopagebar-options.php:99
+#: seopagebar-options_old.php:99
+msgid "Die Standardeinstellungen konnten nicht wiederhergestellt werden!"
+msgstr "Los ajustes estandard no han podido recuperarse"
+
+#: seopagebar-options.php:105
+#: seopagebar-options.php:142
+#: seopagebar-options.php:348
+#: seopagebar-options.php:358
+#: seopagebar-options_old.php:105
+#: seopagebar-options_old.php:142
+#: seopagebar-options_old.php:361
+#: seopagebar-options_old.php:371
+msgid "SEO Pagebar deinstallieren"
+msgstr "Deinstalar SEO Pagebar"
+
+#: seopagebar-options.php:113
+#: seopagebar-options_old.php:113
+#, php-format
+msgid "'%s' wurden gel&ouml;scht."
+msgstr "'%s' borrado"
+
+#: seopagebar-options.php:117
+#: seopagebar-options_old.php:117
+#, php-format
+msgid "Fehler beim l&ouml;schen der '%s'."
+msgstr "Error al borrar '%s'."
+
+#: seopagebar-options.php:143
+#: seopagebar-options_old.php:143
+#, php-format
+msgid "<a href=\"%s\">Klick hier</a> um die Deinstallation der SEO Pagebar zu beenden und das Plugin zu deaktivieren."
+msgstr "<a href=\"%s\">Haz click aqui</a> para concluir la desinstalación y deactivar el enchufe (enchufe= plugin)"
+
+#: seopagebar-options.php:161
+#: seopagebar-options_old.php:160
+msgid "Sprache"
+msgstr "Idioma"
+
+#: seopagebar-options.php:164
+#: seopagebar-options_old.php:163
+msgid "Deutsch"
+msgstr "alemán"
+
+#: seopagebar-options.php:165
+#: seopagebar-options_old.php:164
+msgid "Englisch"
+msgstr "inglés"
+
+#: seopagebar-options.php:166
+#: seopagebar-options_old.php:165
+msgid "Spanisch"
+msgstr "español"
+
+#: seopagebar-options.php:168
+#: seopagebar-options_old.php:167
+msgid "Aktualisieren"
+msgstr "Actualizar"
+
+#: seopagebar-options.php:172
+#: seopagebar-options_old.php:171
+msgid "Text f&uuml;r vorw&auml;rts bl&auml;ttern"
+msgstr "texto para „siguiente página“"
+
+#: seopagebar-options.php:178
+#: seopagebar-options_old.php:177
+msgid "Text f&uuml;r r&uuml;ckw&auml;rts bl&auml;ttern"
+msgstr "texto para „regresar“"
+
+#: seopagebar-options.php:184
+#: seopagebar-options_old.php:183
+msgid "Leerr&auml;ume zwischen Pagebar-Elementen"
+msgstr "texto entre saltos de páginas"
+
+#: seopagebar-options.php:188
+#: seopagebar-options_old.php:189
+msgid "CSS-Klasse f&uuml;r SEO Pagebar"
+msgstr "tipo CSS para SEO-Pagebar"
+
+#: seopagebar-options.php:192
+#: seopagebar-options_old.php:195
+msgid "CSS-Klasse f&uuml;r Links"
+msgstr "tipo CSS para enlaces"
+
+#: seopagebar-options.php:196
+#: seopagebar-options_old.php:201
+msgid "Links mit Nofollow-Tag?"
+msgstr "enlaces con tag de “nosiga”"
+
+#: seopagebar-options.php:198
+#: seopagebar-options.php:205
+#: seopagebar-options.php:216
+#: seopagebar-options.php:224
+#: seopagebar-options.php:241
+#: seopagebar-options.php:271
+#: seopagebar-options.php:294
+#: seopagebar-options.php:301
+#: seopagebar-options_old.php:203
+#: seopagebar-options_old.php:210
+#: seopagebar-options_old.php:223
+#: seopagebar-options_old.php:231
+#: seopagebar-options_old.php:250
+#: seopagebar-options_old.php:284
+#: seopagebar-options_old.php:307
+#: seopagebar-options_old.php:314
+msgid "Ja"
+msgstr "sí"
+
+#: seopagebar-options.php:199
+#: seopagebar-options.php:206
+#: seopagebar-options.php:217
+#: seopagebar-options.php:225
+#: seopagebar-options.php:242
+#: seopagebar-options.php:272
+#: seopagebar-options.php:295
+#: seopagebar-options.php:302
+#: seopagebar-options_old.php:204
+#: seopagebar-options_old.php:211
+#: seopagebar-options_old.php:224
+#: seopagebar-options_old.php:232
+#: seopagebar-options_old.php:251
+#: seopagebar-options_old.php:285
+#: seopagebar-options_old.php:308
+#: seopagebar-options_old.php:315
+msgid "Nein"
+msgstr "no"
+
+#: seopagebar-options.php:203
+#: seopagebar-options_old.php:208
+msgid "Mouseover bei Links"
+msgstr "ver texto al mover mouse  sobre enlace "
+
+#: seopagebar-options.php:210
+#: seopagebar-options_old.php:215
+msgid "Mouseovertext"
+msgstr "ver texto"
+
+#: seopagebar-options.php:214
+#: seopagebar-options_old.php:221
+msgid "Mouseover Text automatisch setzen mit Kategorie/Tag/Suchwort"
+msgstr "colocar texto automáticamente con categoría/tag/palabra clave"
+
+#: seopagebar-options.php:218
+#: seopagebar-options_old.php:225
+msgid "wenn ausgef&uuml;llt, wird eigener Mouseovertext ignoriert"
+msgstr "al llenar se ignora texto propio"
+
+#: seopagebar-options.php:222
+#: seopagebar-options_old.php:229
+msgid "Soll die SEO Pagebar angezeigt werden, wenn es nur eine Seite gibt?"
+msgstr "¿Quiere que se vea la SEO-Pagebar cuando exista sólo una página?"
+
+#: seopagebar-options.php:229
+#: seopagebar-options_old.php:236
+msgid "Wieviele Seiten sollen in der Mitte angezeigt werden?"
+msgstr "¿Cuántas páginas deben verse en en centro?"
+
+#: seopagebar-options.php:236
+#: seopagebar-options_old.php:245
+msgid "Seoeinstellungen - &Uuml;berschrift der SEO Pagebar"
+msgstr "Ajustes SEO – Título SEO-Pagebar"
+
+#: seopagebar-options.php:239
+#: seopagebar-options_old.php:248
+msgid "Soll eine &Uuml;berschrift angezeigt werden?"
+msgstr "¿Quiere hacer visible un título?"
+
+#: seopagebar-options.php:246
+#: seopagebar-options_old.php:255
+msgid "&Uuml;berschrift"
+msgstr " título"
+
+#: seopagebar-options.php:250
+#: seopagebar-options_old.php:261
+msgid "&Uuml;berschrift verlinkt zu"
+msgstr "título enlaza con"
+
+#: seopagebar-options.php:254
+#: seopagebar-options_old.php:267
+msgid "HTML-Tag um die &Uuml;berschrift"
+msgstr "tag HTML título"
+
+#: seopagebar-options.php:269
+#: seopagebar-options_old.php:282
+msgid "Link mit Nofollow Tag?"
+msgstr "enlace con tag de „nosiga“"
+
+#: seopagebar-options.php:279
+#: seopagebar-options.php:330
+#: seopagebar-options_old.php:292
+#: seopagebar-options_old.php:343
+msgid "Oder ganze Zeile eingeben"
+msgstr " o poner línea completa"
+
+#: seopagebar-options.php:282
+#: seopagebar-options.php:333
+#: seopagebar-options_old.php:295
+#: seopagebar-options_old.php:346
+msgid "wenn ausgef&uuml;llt, wird der Rest ignoriert"
+msgstr "al llenar se ignora el resto"
+
+#: seopagebar-options.php:289
+#: seopagebar-options_old.php:302
+msgid "Seoeinstellungen - Untertitel der SEO Pagebar"
+msgstr "Ajustes del SEO – Subtítulos de la  SEO-Pagebar"
+
+#: seopagebar-options.php:292
+#: seopagebar-options_old.php:305
+msgid "Soll ein Untertitel angezeigt werden?"
+msgstr "¿Quiere hacer visible un subtítulo?"
+
+#: seopagebar-options.php:299
+#: seopagebar-options_old.php:312
+msgid "Soll automatisch die Kategorie, das Suchwort oder Tag gesetzt werden?"
+msgstr " ¿Quiere la colocación automática de categoría, palabra o tag?"
+
+#: seopagebar-options.php:306
+#: seopagebar-options_old.php:319
+msgid "Untertitel (Hauptseiten)"
+msgstr "Subtítulo (páginas principales)"
+
+#: seopagebar-options.php:312
+#: seopagebar-options_old.php:325
+msgid "HTML-Tag um den Untertitel"
+msgstr "HTML-tag del subtítulo"
+
+#: seopagebar-options.php:350
+#: seopagebar-options_old.php:363
+msgid "Falls Du Deine SEO-Pagebar nicht mehr nutzen m&ouml;chtest, kannst Du mit dieser Option die SEO-Pagebar aus der Datenbank entfernen."
+msgstr "En caso de queya no quieras utilizar tu SEO-Pagebar, esta opción te permite eliminar"
+
+#: seopagebar-options.php:353
+#: seopagebar-options_old.php:366
+msgid "Warnung:"
+msgstr "Advertencia:"
+
+#: seopagebar-options.php:354
+#: seopagebar-options_old.php:367
+msgid "Vor jeder &Auml;nderung an der Datenbank sollte man ein Datenbank-Backup anfertigen. Sollte bei der L&ouml;schung der SEO-Pagebar ein Datenbank-Fehler auftreten, was man leider nicht vollst&auml;ndig ausschlie&szlig;en kann, so kann dieser nachtr&auml;glich nicht r&uuml;ckg&auml;ngig gemacht werden!"
+msgstr "Antes de realizar cualquier cambio en el banco de datosse recomienda hacer una copia de seguridad. En caso de que haya errores, lo cual lamentablemente no se puede excluir al cien por ciento ¡este cambio es irreversible!"
+
+#: seopagebar-options.php:357
+#: seopagebar-options_old.php:370
+msgid "L&ouml;schen best&auml;tigen"
+msgstr "confirmar borrar"
+
+#: seopagebar-options.php:358
+#: seopagebar-options_old.php:371
+msgid "Soll die SEO Pagebar wirklich deinstalliert werden? Diese Aktion kann nicht r&uuml;ckg&auml;ngig gemacht werden."
+msgstr "¿Estas seguro que quieres deinstalar la SEO-Pagebar? Esta acción es irreversible."
+
+#: seopagebar.php:48
+msgid "seopagebar"
+msgstr "seopagebar"
+
+#: seopagebar.php:48
+msgid "SEO Pagebar"
+msgstr "SEO Pagebar"
+
+#: seopagebar.php:259
+#: seopagebar.php:276
+#: seopagebar.php:284
+#: seopagebar.php:299
+#: seopagebar.php:307
+#: seopagebar.php:327
+#: seopagebar.php:345
+#: seopagebar.php:353
+#: seopagebar.php:374
+#: seopagebar.php:391
+#: seopagebar.php:399
+msgid "Seite"
+msgstr "la página"
+
+#~ msgid "Untertitel"
+#~ msgstr "subtítulo"
+#~ msgid "Abbrechen"
+#~ msgstr "suspender"
+#~ msgid "Einstellungen geupdatet!"
+#~ msgstr "¡ajustes actualizados!"
+#~ msgid "Text zwischen Seitenspr&uuml;ngen"
+#~ msgstr "texto entre saltos de páginas"
+#~ msgid "JA"
+#~ msgstr "sí"
+

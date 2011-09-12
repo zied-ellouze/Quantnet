@@ -1,0 +1,53 @@
+/* ######### CSS for Indented CSS Tabs. Remove if not using ######### */
+
+
+.indentmenu{
+width: 100%; /*leave this value as is in most cases*/
+overflow: hidden;
+clear:both;
+margin-top:20px;
+}
+
+.indentmenu ul{
+margin: 0;
+padding: 0;
+background:url(../images/tabborder.jpg) repeat-x 0px 0px;
+overflow: hidden;
+}
+
+.indentmenu ul li{
+float: left;
+height: 34px;
+margin-right:6px;
+}
+
+.indentmenu ul li a{
+float: left;
+color:#666666;
+padding: 0px 13px;
+text-decoration: none;
+text-transform: uppercase;
+font-size: 14px;
+height: 32px;
+background:url(../images/tabBG.jpg) repeat-x 0px 0px;
+line-height: 26px;
+}
+.indentmenu ul li a:hover , .indentmenu ul li a.selected{
+    background:#274457 url(../images/tabarrow.jpg) no-repeat center bottom;
+    color:#fff;
+}
+
+.tabcontent{
+display:none;
+}
+.tabcontent ul{ margin:5px 0px 0px 0px; padding: 0px; list-style: none;}
+.tabcontent ul li{ border-bottom: 1px solid #e2e2e2; padding: 15px 0px 16px 6px;}
+
+@media print {
+.tabcontent {
+display:block !important;
+}
+}
+
+.tabarea{
+}

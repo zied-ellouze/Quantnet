@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/quantnet/svn/!svn/ver/3/htdocs/wp-content/plugins/w3-total-cache/lib/Minify/Minify
+END
+ImportProcessor.php
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/quantnet/svn/!svn/ver/3/htdocs/wp-content/plugins/w3-total-cache/lib/Minify/Minify/ImportProcessor.php
+END
+Lines.php
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/quantnet/svn/!svn/ver/3/htdocs/wp-content/plugins/w3-total-cache/lib/Minify/Minify/Lines.php
+END
+CombineOnly.php
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/quantnet/svn/!svn/ver/3/htdocs/wp-content/plugins/w3-total-cache/lib/Minify/Minify/CombineOnly.php
+END
+Build.php
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/quantnet/svn/!svn/ver/3/htdocs/wp-content/plugins/w3-total-cache/lib/Minify/Minify/Build.php
+END
+Logger.php
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/quantnet/svn/!svn/ver/3/htdocs/wp-content/plugins/w3-total-cache/lib/Minify/Minify/Logger.php
+END
+CommentPreserver.php
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/quantnet/svn/!svn/ver/3/htdocs/wp-content/plugins/w3-total-cache/lib/Minify/Minify/CommentPreserver.php
+END
+Source.php
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/quantnet/svn/!svn/ver/3/htdocs/wp-content/plugins/w3-total-cache/lib/Minify/Minify/Source.php
+END
+YUICompressor.php
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/quantnet/svn/!svn/ver/3/htdocs/wp-content/plugins/w3-total-cache/lib/Minify/Minify/YUICompressor.php
+END
+HTML.php
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/quantnet/svn/!svn/ver/3/htdocs/wp-content/plugins/w3-total-cache/lib/Minify/Minify/HTML.php
+END
+Packer.php
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/quantnet/svn/!svn/ver/3/htdocs/wp-content/plugins/w3-total-cache/lib/Minify/Minify/Packer.php
+END
+CSS.php
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/quantnet/svn/!svn/ver/3/htdocs/wp-content/plugins/w3-total-cache/lib/Minify/Minify/CSS.php
+END

@@ -1,0 +1,75 @@
+#seopagebar { 
+	font: normal 1.01em arial; 
+	padding-top: 10px; 
+	padding-bottom: 10px; 
+	margin: 0px; 
+	text-align: center; 
+ }
+
+#seopagebar p { 
+	padding: 5px 0; 
+	margin: 0 0 5px 0; 
+	} 
+
+#seopagebar a, .pageList .this-page { 
+	padding: 2px 6px; 
+	border: solid 1px #ddd; 
+	background: #fff; 
+	text-decoration: none;
+	margin: 2px 4px; 
+ }
+
+#seopagebar a:visited {
+	padding: 2px 6px; 
+	border: solid 1px #ddd; 
+	background: #fff; 
+	text-decoration: none;
+	margin: 2px 4px; 
+}
+
+#seopagebar a:hover, #seopagebar a:active {
+	color: #e62d00;
+	text-decoration: none; 
+ }
+
+#seopagebar h1, #seopagebar h2, #seopagebar h3, #seopagebar h4, #seopagebar h5, #seopagebar h6 {
+	text-decoration: none;
+	color: #000;
+	border: none;
+	font-size: 1.2em; 
+	padding: 0; 
+	margin: 0; 
+ }
+ 
+#seopagebar h1 a, #seopagebar h2 a, #seopagebar h3 a, #seopagebar h4 a, #seopagebar h5 a, #seopagebar h6 a {
+	text-decoration: none;
+	color: #000;
+	border: none;
+	padding: 0; 
+	margin: 0; 
+ }
+
+#seopagebar h2 a:visited { 
+	text-decoration: none;
+	color: #000;
+	border: none; 
+ } 
+ 
+#seopagebar h2 a:hover {
+	text-decoration: none;
+	color: #000;
+	border: none;
+ } 
+
+#seopagebar .break {
+	padding: 2px 6px; 
+	border: none; 
+	background: #fff; 
+	text-decoration: none;
+ }
+
+#seopagebar .this-page {
+	padding: 2px 6px; 
+	border-color: #999; 
+	background: #fff;
+ }

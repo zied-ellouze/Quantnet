@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/quantnet/svn/!svn/ver/3/htdocs/wp-content/plugins/w3-total-cache/lib/Minify/Minify/Controller
+END
+Base.php
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/quantnet/svn/!svn/ver/3/htdocs/wp-content/plugins/w3-total-cache/lib/Minify/Minify/Controller/Base.php
+END
+Page.php
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/quantnet/svn/!svn/ver/3/htdocs/wp-content/plugins/w3-total-cache/lib/Minify/Minify/Controller/Page.php
+END
+Groups.php
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/quantnet/svn/!svn/ver/3/htdocs/wp-content/plugins/w3-total-cache/lib/Minify/Minify/Controller/Groups.php
+END
+Files.php
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/quantnet/svn/!svn/ver/3/htdocs/wp-content/plugins/w3-total-cache/lib/Minify/Minify/Controller/Files.php
+END
+MinApp.php
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/quantnet/svn/!svn/ver/3/htdocs/wp-content/plugins/w3-total-cache/lib/Minify/Minify/Controller/MinApp.php
+END
+Version1.php
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/quantnet/svn/!svn/ver/3/htdocs/wp-content/plugins/w3-total-cache/lib/Minify/Minify/Controller/Version1.php
+END

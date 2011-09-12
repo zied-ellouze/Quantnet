@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/quantnet/svn/!svn/ver/3/htdocs/wp-content/plugins/w3-total-cache/lib/W3
+END
+ObjectCache.php
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/quantnet/svn/!svn/ver/3/htdocs/wp-content/plugins/w3-total-cache/lib/W3/ObjectCache.php
+END
+PgCache.php
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/quantnet/svn/!svn/ver/3/htdocs/wp-content/plugins/w3-total-cache/lib/W3/PgCache.php
+END
+Minify.php
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/quantnet/svn/!svn/ver/3/htdocs/wp-content/plugins/w3-total-cache/lib/W3/Minify.php
+END
+Plugin.php
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/quantnet/svn/!svn/ver/3/htdocs/wp-content/plugins/w3-total-cache/lib/W3/Plugin.php
+END
+Cache.php
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/quantnet/svn/!svn/ver/3/htdocs/wp-content/plugins/w3-total-cache/lib/W3/Cache.php
+END
+Cdn.php
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/quantnet/svn/!svn/ver/3/htdocs/wp-content/plugins/w3-total-cache/lib/W3/Cdn.php
+END
+Config.php
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/quantnet/svn/!svn/ver/3/htdocs/wp-content/plugins/w3-total-cache/lib/W3/Config.php
+END
+Db.php
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/quantnet/svn/!svn/ver/3/htdocs/wp-content/plugins/w3-total-cache/lib/W3/Db.php
+END
+Mobile.php
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/quantnet/svn/!svn/ver/3/htdocs/wp-content/plugins/w3-total-cache/lib/W3/Mobile.php
+END
+Request.php
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/quantnet/svn/!svn/ver/3/htdocs/wp-content/plugins/w3-total-cache/lib/W3/Request.php
+END

@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/quantnet/svn/!svn/ver/3/htdocs/wp-content/plugins/w3-total-cache/lib/CF
+END
+cloudfiles.php
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/quantnet/svn/!svn/ver/3/htdocs/wp-content/plugins/w3-total-cache/lib/CF/cloudfiles.php
+END
+cloudfiles_exceptions.php
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/quantnet/svn/!svn/ver/3/htdocs/wp-content/plugins/w3-total-cache/lib/CF/cloudfiles_exceptions.php
+END
+cacert.pem
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/quantnet/svn/!svn/ver/3/htdocs/wp-content/plugins/w3-total-cache/lib/CF/cacert.pem
+END
+cloudfiles_http.php
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/quantnet/svn/!svn/ver/3/htdocs/wp-content/plugins/w3-total-cache/lib/CF/cloudfiles_http.php
+END

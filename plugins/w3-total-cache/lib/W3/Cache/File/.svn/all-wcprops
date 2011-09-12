@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/quantnet/svn/!svn/ver/3/htdocs/wp-content/plugins/w3-total-cache/lib/W3/Cache/File
+END
+Manager.php
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/quantnet/svn/!svn/ver/3/htdocs/wp-content/plugins/w3-total-cache/lib/W3/Cache/File/Manager.php
+END
+PgCache.php
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/quantnet/svn/!svn/ver/3/htdocs/wp-content/plugins/w3-total-cache/lib/W3/Cache/File/PgCache.php
+END
