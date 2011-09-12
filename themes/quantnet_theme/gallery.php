@@ -31,12 +31,11 @@ get_header();
 	}
 	</script>
 	<div class="gallerypage">
-		<?php if(isset($_GET['id'])): $images = quant_get_all_program_images($_GET['id']); $md5_images = array(); ?>
+		<?php if(isset($_GET['id'])): $images = quant_get_all_program_images($_GET['id']); ?>
 			<a href="<?php echo get_post_permalink($_GET['id']); ?>" class="backreview">Back to the review page</a>
 			<?php if(count($images) > 0): $i=0; $j=0; ?>
 				<div class="image-container">
 					<?php foreach($images as $image): ?>
-						<?php $md5_images[] = md5($image); ?>
 						<script type="text/javascript">
 						gallery.images.push('<?php echo $image; ?>');
 						</script>
@@ -60,14 +59,6 @@ get_header();
 					<?php $j++; endforeach; ?>
                     </div>
 				</div>
-				<?php if(isset($_GET['picture_id'])): ?>
-					<?php $key = array_search($_GET['picture_id'], $md5_images); ?>
-					<?php if($key): ?>
-						<script type="text/javascript">
-						gallery.image('<?php echo $key; ?>');
-						</script>
-					<?php endif; ?>
-				<?php endif; ?>
 			<?php else: ?>
 				<h2>No images were found for this review.</h2>
 			<?php endif; ?>

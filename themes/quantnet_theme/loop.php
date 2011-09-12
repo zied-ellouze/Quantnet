@@ -21,7 +21,7 @@
 
 <?php if(is_home()) {
   $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-  query_posts('cat=-75&orderby=date&order=DESC&paged='.$paged);
+  query_posts('cat=-1&orderby=date&order=DESC&paged='.$paged);//not including featured category
  } ?>
 <?php /* If there are no posts to display, such as an empty archive page */ ?>
 <?php if ( ! have_posts() ) : ?>
@@ -124,7 +124,7 @@
                         <?php
 			//for job post description page
 			$servrs = explode('/', $_SERVER[REQUEST_URI]);	 
-			if($servrs[2] == '') //for getting all the posts other than that of job posts
+			if($servrs[3] == '') //for getting all the posts other than that of job posts
                    {
 			$comments = $wpdb->get_row("SELECT comment_count as count FROM wp_posts WHERE ID = '$post->ID'");
 			$commentcount = $comments->count;
@@ -199,7 +199,21 @@ src="http://platform.twitter.com/widgets/tweet_button.html?url=<?php the_permali
 			<h2 class="entry-title"><a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'twentyten' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
                         <?php if ( is_archive() || is_search() || is_home() ) : // Only display excerpts for archives and search. ?>
                             <div class="entry-summary">
-                                    <div class="featured-img"><?php the_post_thumbnail(); //for showing thumbnail ?></div><?php the_excerpt(); ?><?php ngg_excerpt(); ?>
+                                    <?php //getting thumbnail
+									if(has_post_thumbnail()) {
+										the_post_thumbnail('thumbnail'); //for featured thumbail
+										} else {
+										catch_that_image(); //for first post image
+										}
+									
+										if(is_home()) {   ?>
+                                    <?php $content1 = get_the_content($post->ID); $LIMIT1='300'; ?>
+									<?php echo preview_text($content1, $LIMIT1, $TAGS = 0, ''); //getting limited content for homepage ?>
+                                    
+                                    <?php } else { ?>
+									<?php the_excerpt(); ?>
+									<?php } ?>
+									<?php ngg_excerpt(); ?>
                             </div><!-- .entry-summary -->
                         <?php else : ?>
 			<div class="entry-content">

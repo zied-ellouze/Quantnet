@@ -6,19 +6,13 @@
 		//quantnet_set_reviews_ranking();
 		//exit();
 		//Get all of the programs to be displayed
-		$direction = "ASC";
-		if(isset($_GET['dir'])):
-			if($_GET['dir']=="desc"):
-				$direction = "DESC";
-			endif;
-		endif;
 		if($_GET['sort'] == "name"):
 			$wpsc_query = new WP_Query( 
 				array(
 					'post_type'=>'quantnet_program',
 					'post_status'=>'publish',
-					'orderby'=>'title',
-					'order'=>$direction
+					'orderby'=>'page_title',
+					'order'=>'ASC'
 				)
 			);
 		elseif($_GET['sort'] == "reviews"):
@@ -28,7 +22,7 @@
 					'post_status'=>'publish',
 					'meta_key'=>'number_of_reviews',
 					'orderby'=>'meta_value_num',
-					'order'=>$direction
+					'order'=>'ASC'
 				)
 			);
 		else:
@@ -38,7 +32,7 @@
 					'post_status'=>'publish',
 					'meta_key'=>'ranking',
 					'orderby'=>'meta_value_num',
-					'order'=>$direction
+					'order'=>'ASC'
 				)
 			);
 		endif;
@@ -46,8 +40,8 @@
 		
 		<?php if($wpsc_query->have_posts()) : ?>
 			<div class="ratesorting">
-        <span class="sortby"></span>
-				<a href="?sort=rating&dir=<?php if($_GET['dir']=="desc"&&$_GET["sort"]=="rating") echo "asc"; else echo "desc"; ?>" class="<?php if($_GET['sort']=="rating"&&isset($_GET['dir'])) echo $_GET['dir']." bld"; else if($_GET['sort']=="rating"||!isset($_GET['sort'])) echo "asc bld"; ?>">Rating</a><a href="?sort=name&dir=<?php if($_GET['dir']=="asc"&&$_GET["sort"]=="name") echo "desc"; else echo "asc"; ?>" id="brder" class="<?php if($_GET['sort']=="name"&&isset($_GET['dir'])) echo $_GET['dir']." bld"; else if($_GET['sort']=="name") echo "asc bld"; ?>">Program Name</a><a href="?sort=reviews&dir=<?php if($_GET['dir']=="desc"&&$_GET["sort"]=="reviews") echo "asc"; else echo "desc"; ?>" class="<?php if($_GET['sort']=="reviews"&&isset($_GET['dir'])) echo $_GET['dir']." bld"; else if($_GET['sort']=="reviews") echo "asc bld"; ?>">Number of Reviews</a>
+            	<span class="sortby"></span>
+				<a href="<?php echo $_SERVER['REQUEST_URI'];?>" class="desc">Rating</a><a href="<?php echo $_SERVER['REQUEST_URI'];?>?sort=name" class="brder">Program Name</a><a href="<?php echo $_SERVER['PHP_SELF'];?>?reviews">Number of Reviews</a>
 			</div>
 			<?php foreach($wpsc_query->get_posts() as $post) : setup_postdata($post); $review_details = quantnet_review_details(get_the_id()); ?>
 				<?php //start loop ?>

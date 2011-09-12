@@ -55,12 +55,8 @@
 	<?php //end loop ?>
 	<div class="reviews">
 		<?php
-		$direction = "ASC";
-		if(isset($_GET['dir'])):
-			if($_GET['dir']=="desc"):
-				$direction = "DESC";
-			endif;
-		endif;
+		//quantnet_set_reviews_ranking();
+		//exit();
 		//Get all of the programs to be displayed
 		if($_GET['sort'] == "date"):
 			$wpsc_query = new WP_Query( 
@@ -68,8 +64,8 @@
 					'post_type'=>'quantnet_review',
 					'post_status'=>'publish',
 					'post_parent'=>get_the_id(),
-					'orderby'=>'date',
-					'order'=>$direction
+					'orderby'=>'post_date',
+					'order'=>'DESC'
 				)
 			);
 		else:
@@ -80,7 +76,7 @@
 					'post_parent'=>get_the_id(),
 					'meta_key'=>'rating',
 					'orderby'=>'meta_value_num',
-					'order'=>$direction
+					'order'=>'DESC'
 				)
 			);
 		endif;
@@ -88,7 +84,7 @@
 		<?php if($wpsc_query->have_posts()) : ?>
 			<div class="ratesorting">
             	<span class="sortby"></span>
-				<a href="?sort=rating&dir=<?php if($_GET['dir']=="desc"&&$_GET["sort"]=="rating") echo "asc"; else echo "desc"; ?>" class="<?php if($_GET['sort']=="rating"&&isset($_GET['dir'])) echo $_GET['dir']." bld"; else if($_GET['sort']=="rating"||!isset($_GET['sort'])) echo "asc bld"; ?>">Rating</a><a href="?sort=date&dir=<?php if($_GET['dir']=="asc"&&$_GET["sort"]=="date") echo "desc"; else echo "asc"; ?>" id="brder" class="<?php if($_GET['sort']=="date"&&isset($_GET['dir'])) echo $_GET['dir']." bld"; else if($_GET['sort']=="date") echo "asc bld"; ?>">Date</a>
+				<a href="<?php echo parse_url($_SERVER['REQUEST_URI'],PHP_URL_PATH);?>" class="desc">Rating</a><a href="<?php echo parse_url($_SERVER['REQUEST_URI'],PHP_URL_PATH);?>?sort=date" class="brder">Date</a>
 			</div>
 			<?php foreach($wpsc_query->get_posts() as $post) : setup_postdata($post); $images = quant_get_all_review_images(get_the_id(), 4); ?>
 				<?php //start loop ?>

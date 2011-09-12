@@ -58,10 +58,12 @@
              'link_after'      => '</span>',
              'theme_location'  => 'primary')
              ); ?>
+             <div class="search-bar">
             <form action="<?php bloginfo('home'); ?>" id="searchform" method="get" role="search">
                    <input type="text" id="s" name="s" value="Search" onblur="if (this.value == '') {this.value = 'Search';}" onfocus="if (this.value == 'Search') {this.value = '';}" >
                     <input type="submit" value="Search" id="searchsubmit" class="searchbtn">
             </form>
+            </div>
         </div><!-- #access -->
         <div class="clear"></div>
     </div><!-- #header -->

@@ -15,9 +15,9 @@
  get_header(); ?>
 
  <div id="container">
-        <div id="content" role="main">
+        <div id="content" role="main" class="<?php if(is_home()) echo 'myhome'; ?>">
         <!--Code for showing featured post-->
-        <?php query_posts('cat=75&showposts=1&orderby=date&order=DESC'); ?>
+        <?php query_posts('cat=1&showposts=1&orderby=date&order=DESC'); ?>
             <?php while ( have_posts() ) : the_post();
                 global $wpdb;
                 $postID = get_the_ID();
@@ -30,7 +30,13 @@
             <div class="stoy-shadow">
                 <div class="ourstory">
                     <h1>Story Of The Day</h1>
-                    <div class="story-img"><?php the_post_thumbnail('thumbnail'); //for showing thumbnail ?></div>
+                    <div class="story-img"> <?php //getting thumbnail
+				if(has_post_thumbnail()) {
+					the_post_thumbnail('thumbnail'); //for featured thumbail
+					} else {
+					catch_that_image(); //for first post image
+					}
+				 ?></div>
                     <div class="story-content">
                         <h2 class="entry-title"><?php the_title(); ?></h2>
                         <p>

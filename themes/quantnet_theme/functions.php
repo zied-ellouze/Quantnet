@@ -94,6 +94,8 @@ $role = get_role( 'author' );
 // add "company" to this role object
 $role->add_cap( 'company' );
 
+
+
 function dropdown_tag_cloud( $args = '' ) {
 	$defaults = array(
 		'smallest' => 8, 'largest' => 22, 'unit' => 'pt', 'number' => 45,
@@ -256,7 +258,7 @@ function preview_text($TEXT, $LIMIT, $TAGS = 0, $AFTER) {
 	//echo $TEXT;
     // STRIP TAGS IF PREVIEW IS WITHOUT HTML
     if ($TAGS == 0) $TEXT = preg_replace('/\s\s+/', ' ', strip_tags($TEXT));
-
+	$TEXT = preg_replace("/\[caption.*\[\/caption\]/", '', $TEXT);
     // IF STRLEN IS SMALLER THAN LIMIT RETURN
     if (strlen($TEXT) < $LIMIT) return $TEXT;
 
@@ -304,6 +306,19 @@ function catch_that_image() {
   if(empty($first_img)){ //Defines a default image
     //$first_img = "/images/default.jpg";
   }
+  else 
+  {
+ 	 $explodepoint = explode(".",$first_img);
+     $count = count($explodepoint);
+     $size = "-300x198";
+     $explodepoint[$count-2]= $explodepoint[$count-2]."".$size;
+     $thumb_img = implode(".",$explodepoint);
+	 if(is_home()) {
+   ?>
+  <div class="featured-img" ><img src="<?php echo  $first_img; //for showing thumbnail ?>"  /></div>
+ <?php } else { ?>
+ <div class="featured-img" ><img src="<?php echo  $first_img; //for showing thumbnail ?>" width="270"  /></div>
+<?php } }
   return $first_img;
 }
 
@@ -582,21 +597,27 @@ function twentyten_comment( $comment, $args, $depth ) {
 	?>
 	<li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
 		<div id="comment-<?php comment_ID(); ?>">
+        <div class="comment-top">
 		<div class="comment-author vcard">
 			<?php echo get_avatar( $comment, 40 ); ?>
-			<?php printf( __( '%s <span class="says">says:</span>', 'twentyten' ), sprintf( '<cite class="fn">%s</cite>', get_comment_author_link() ) ); ?>
+
 		</div><!-- .comment-author .vcard -->
 		<?php if ( $comment->comment_approved == '0' ) : ?>
 			<em class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.', 'twentyten' ); ?></em>
 			<br />
 		<?php endif; ?>
 
-		<div class="comment-meta commentmetadata"><a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>">
+		<div class="comment-meta commentmetadata">
+        			<?php printf( __( '%s', 'twentyten' ), sprintf( '<cite class="fn">%s</cite>', get_comment_author_link() ) ); ?>
+        
+        <a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>">
 			<?php
 				/* translators: 1: date, 2: time */
 				printf( __( '%1$s at %2$s', 'twentyten' ), get_comment_date(),  get_comment_time() ); ?></a><?php edit_comment_link( __( '(Edit)', 'twentyten' ), ' ' );
 			?>
-		</div><!-- .comment-meta .commentmetadata -->
+		</div>
+        </div>
+        <!-- .comment-meta .commentmetadata -->
 
 		<div class="comment-body"><?php comment_text(); ?></div>
 
@@ -966,7 +987,6 @@ if(!function_exists('quantnet_program_save')):
 	  endif;
 	  
 	  update_post_meta($post_id, "number_of_reviews", "0");
-	  quantnet_set_reviews_ranking();
 		
 	  return true;
 	}
@@ -1145,9 +1165,8 @@ endif;
 if(!function_exists('quantnet_review_calculate_rating')):
 	function quantnet_review_calculate_rating($id){
 		global $wpdb;
-		$reviews = $wpdb->get_results("SELECT * FROM wp_rg_lead as l, wp_rg_lead_detail as ld WHERE l.post_id = '".$id."' AND l.id = ld.lead_id AND ld.field_number = '26'");
+		$reviews = $wpdb->get_results("SELECT * FROM wp_rg_lead as l, wp_rg_lead_detail as ld WHERE l.post_id = '".$id."' AND l.id = ld.lead_id AND field_number = '26'");
 		$total = count($reviews);
-		//mail('estolz@websitez.com', 'Reviews', $total);
 		if($total > 0):
 			foreach($reviews as $r):
 				$value += (Int)$r->value;
@@ -1173,6 +1192,7 @@ if(!function_exists('quantnet_review_update_post')):
 		$post->post_parent = $entry[41];
 		$post->post_status = "publish";
 		wp_update_post($post);
+		//mail("estolz@websitez.com", "Values", $entry[26]);
 		update_post_meta($entry["post_id"], 'rating', $entry[26]);
 	}
 endif;
@@ -1181,16 +1201,11 @@ if(!function_exists('quantnet_review_calculate_rating_after_submission')):
 	function quantnet_review_calculate_rating_after_submission($entry, $form){
 		global $wpdb;
 		//$entry[41] is the post id for the master review
-		$update = $wpdb->query("UPDATE wp_rg_lead SET post_id = '".$entry[41]."' WHERE id = '".$entry["id"]."'");
+		//$update = $wpdb->query("UPDATE wp_rg_lead SET post_id = '".$entry[41]."' WHERE id = '".$entry["id"]."'");
 		$rating = quantnet_review_calculate_rating($entry[41]);
 		update_post_meta($entry[41], 'average_rating', $rating);
 		$number_of_reviews = get_post_meta($entry[41], "number_of_reviews", true);
-		if($number_of_reviews=="")
-			$number_of_reviews=0;
-		else
-			$number_of_reviews = (Int)$number_of_reviews;
-		$number_of_reviews = $number_of_reviews+1;
-		update_post_meta($entry[41], 'number_of_reviews', $number_of_reviews);
+		update_post_meta($entry[41], 'number_of_reviews', $number_of_reviews++);
 	}
 endif;
 

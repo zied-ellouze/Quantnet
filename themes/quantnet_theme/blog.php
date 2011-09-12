@@ -12,21 +12,31 @@ get_header(); ?>
         <?php $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
         if(is_page('Education'))//for checking Education page
          {
-           query_posts( 'cat=29&orderby=date&order=DESC&paged='.$paged ); //showing posts from Education category
+           query_posts( 'cat=18&orderby=date&order=DESC&paged='.$paged ); //showing posts from Education category
+         }
+		 if(is_page('Jobs'))//for checking Jobs page
+         {
+           query_posts( 'cat=23&orderby=date&order=DESC&paged='.$paged ); //showing posts from Education category
          }
         if(is_page('Blog')) //for checking Blog page
          {
-           query_posts( 'cat=3&orderby=date&order=DESC&paged='.$paged );  //showing posts from Blog category
+           query_posts( 'cat=51&orderby=date&order=DESC&paged='.$paged );  //showing posts from Blog category
          }
         if(is_page('Career')) //for checking Career page
          {
-           query_posts( 'cat=47&orderby=date&order=DESC&paged='.$paged ); //showing posts from Quant Career category
+           query_posts( 'cat=37&orderby=date&order=DESC&paged='.$paged ); //showing posts from Quant Career category
          }
         while ( have_posts() ) : the_post(); ?>
             <div id="post" <?php post_class(); ?>>
                 <h2 class="entry-title"><a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'twentyten' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
                 <div class="entry-summary">
-                <div class="featured-img"><?php the_post_thumbnail(); //for showing thumbnail ?></div>
+                <?php //getting thumbnail
+				if(has_post_thumbnail()) {
+					the_post_thumbnail('thumbnail'); //for featured thumbail
+					} else {
+					catch_that_image(); //for first post image
+					}
+				 ?>
                 <?php the_excerpt(); ?>
                 </div><!-- .entry-summary -->
                 <?php $tags_list = get_the_tag_list( '', ', ' ); if ( $tags_list ):?>

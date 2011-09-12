@@ -9,7 +9,7 @@
 ?>
 <div id="primary" class="widget-area" role="complementary">
         <?php if(is_page('About Us') || is_page('Contact Us') || is_page('Advertising Opportunities') || is_page('Write For Us')) {?>
-            <div class="side-nav"><ul><?php wp_list_pages('include=211,214,219,221&title_li='); ?></ul></div>
+            <div class="side-nav"><ul><?php wp_list_pages('include=981,614,4,506&title_li='); ?></ul></div>
         <?php } else { ?>
         <?php if(is_single()) { ?>
             <div class="authbio">
@@ -50,7 +50,7 @@
             <h2 class='widget-title'>LATEST REVIEWS <span>(<a href="<?php bloginfo('url'); ?>/reviews/">view all</a>)</span></h2>
             <!--for showing two latest posts-->
             <ul>
-                <?php query_posts('cat=74&showposts=2&orderby=date&order=DESC'); ?>
+                <?php query_posts('cat=36&showposts=2&orderby=date&order=DESC'); ?>
                     <?php if ( have_posts() ) : while ( have_posts() ) : the_post();
                         $rating = get_post_meta($post->ID, 'review_rate',true);
                             if($rating == '1') {  $class = "class = 'rating_1 latestrating'";}
@@ -73,7 +73,7 @@
                      <?php endwhile; else: ?>
                      <p><?php _e('No posts by this author.'); ?></p>
                 <?php endif;wp_reset_query(); ?>
-                <?php query_posts('cat=74&showposts=3&orderby=date&order=DESC&offset=2'); ?>
+                <?php query_posts('cat=36&showposts=3&orderby=date&order=DESC&offset=2'); ?>
                     <?php if ( have_posts() ) : while ( have_posts() ) : the_post();
                         $rating = get_post_meta($post->ID, 'review_rate',true);
                             $prog_name = get_post_meta($post->ID, 'program_name', true);
