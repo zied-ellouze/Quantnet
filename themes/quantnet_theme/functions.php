@@ -986,6 +986,8 @@ if(!function_exists('quantnet_program_save')):
 	  	update_post_meta($post_id, "average_rating", "NA");
 	  endif;
 	  
+	  quantnet_set_reviews_ranking();
+	  
 	  update_post_meta($post_id, "number_of_reviews", "0");
 		
 	  return true;
@@ -1127,8 +1129,6 @@ if(!function_exists('quantnet_review_details')):
 		if($id==null)
 			return;
 		$average_rating = get_post_meta($id, 'average_rating', true);
-		if(strlen($average_rating) == 0)
-			$average_rating = "NA";
 		$program_options = get_post_meta($id, 'quant_program_options', false);
 		if(strlen($program_options[0]["mfe_ranking"]) > 0):
 			$mfe_ranking = $program_options[0]['mfe_ranking'];
@@ -1167,6 +1167,7 @@ if(!function_exists('quantnet_review_calculate_rating')):
 		global $wpdb;
 		$reviews = $wpdb->get_results("SELECT * FROM wp_rg_lead as l, wp_rg_lead_detail as ld WHERE l.post_id = '".$id."' AND l.id = ld.lead_id AND field_number = '26'");
 		$total = count($reviews);
+		echo $total."<br>";
 		if($total > 0):
 			foreach($reviews as $r):
 				$value += (Int)$r->value;
@@ -1206,6 +1207,7 @@ if(!function_exists('quantnet_review_calculate_rating_after_submission')):
 		update_post_meta($entry[41], 'average_rating', $rating);
 		$number_of_reviews = get_post_meta($entry[41], "number_of_reviews", true);
 		update_post_meta($entry[41], 'number_of_reviews', $number_of_reviews++);
+		quantnet_set_reviews_ranking();
 	}
 endif;
 

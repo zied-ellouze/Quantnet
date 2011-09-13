@@ -3,8 +3,10 @@
 class WPSEO_Taxonomy {
 	
 	function WPSEO_Taxonomy() {
+		$options = get_wpseo_options();
 		
-		if (is_admin() && isset($_GET['taxonomy']))
+		if (is_admin() && isset($_GET['taxonomy']) && 
+			( !isset($options['tax-hideeditbox-'.$_GET['taxonomy']]) || !$options['tax-hideeditbox-'.$_GET['taxonomy']]) )
 			add_action($_GET['taxonomy'] . '_edit_form', array(&$this,'term_additions_form'), 10, 2 );
 		
 		add_action('edit_term', array(&$this,'update_term'), 10, 3 );
@@ -87,7 +89,7 @@ class WPSEO_Taxonomy {
 			else
 				$tax_meta[$taxonomy][$term_id]['wpseo_'.$key] = false;			
 		}
-		
+
 		update_option( 'wpseo_taxonomy_meta', $tax_meta );
 
 		if ( defined('W3TC_DIR') ) {
@@ -96,12 +98,7 @@ class WPSEO_Taxonomy {
 
 		    $w3_objectcache->flush();			
 		}
-	    
-		global $wpseo_generate, $wpseo_echo;
-		$wpseo_generate = true;
-		$wpseo_echo = false;
-		require_once WPSEO_PATH.'/sitemaps/xml-sitemap-class.php';
-	}	
+	}
 }
 $wpseo_taxonomy = new WPSEO_Taxonomy();
 
