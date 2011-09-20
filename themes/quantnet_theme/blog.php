@@ -9,7 +9,7 @@ Template Name: Blog
 get_header(); ?>
 <div id="container">
   <div id="content" role="main">
-        <?php $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+         <?php $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
         if(is_page('Education'))//for checking Education page
          {
            query_posts( 'cat=18&orderby=date&order=DESC&paged='.$paged ); //showing posts from Education category
@@ -30,13 +30,13 @@ get_header(); ?>
             <div id="post" <?php post_class(); ?>>
                 <h2 class="entry-title"><a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'twentyten' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark"><?php the_title(); ?></a></h2>
                 <div class="entry-summary">
-                <?php //getting thumbnail
+                <div class="featured-img"><?php //getting thumbnail
 				if(has_post_thumbnail()) {
 					the_post_thumbnail('thumbnail'); //for featured thumbail
 					} else {
 					catch_that_image(); //for first post image
 					}
-				 ?>
+				 ?></div>
                 <?php the_excerpt(); ?>
                 </div><!-- .entry-summary -->
                 <?php $tags_list = get_the_tag_list( '', ', ' ); if ( $tags_list ):?>

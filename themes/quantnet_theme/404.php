@@ -62,20 +62,43 @@
                 </div>
                 <div class="errorlinks">
                     <h2>Most Popular</h2>
-                    <ul>
-                        <li><a href="#">How to get your dream quant internship?</a></li>
-                        <li><a href="#">My study experience, MFE internship and job offers</a></li>
-                        <li><a href="#">10 Fun Quantnet Facts You May Not Know</a></li>
-                        <li><a href="#">Memories from the 2010 Quantnet Central Park Picnic</a></li>
+                    <ul> 
+					<?php query_posts('orderby=comment_count&posts_per_page=4');
+            		if ( have_posts() ) : while ( have_posts() ) : the_post();
+                global $wpdb;
+                $postID = get_the_ID();
+                $title = get_the_title();
+                $comments = $wpdb->get_row("SELECT comment_count as count FROM wp_posts WHERE ID = '$postID'");
+                $commentcount = $comments->count;
+                if($commentcount == 1): $commenttext = ''; endif;
+                if($commentcount > 1 || $commentcount == 0): $commenttext = ''; endif;
+                $fulltitle = $title.' ('.$commentcount.' '.$commenttext.')';
+                 ?>
+
+                <li><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php echo $title; ?> </a></li>
+                <?php endwhile; ?>
+                <?php else : ?>
+                <li>Sorry, no posts were found.</li>
+            <?php endif;
+            wp_reset_query();?>
                     </ul>
                 </div>
                 <div class="errorlinks" id="articles">
                     <h2>Latest Articles</h2>
                     <ul>
-                        <li><a href="#">Quantnet's Best-Selling Books of 2010</a></li>
-                        <li><a href="#">Rutgers to Launch Third Quant Master Program</a></li>
-                        <li><a href="#">A day in the Life of a London software contractor</a></li>
-                        <li><a href="#">My Journey to be a Quant</a></li>
+                        <?php query_posts('orderby=date&posts_per_page=4');
+            		if ( have_posts() ) : while ( have_posts() ) : the_post();
+                global $wpdb;
+                $postID = get_the_ID();
+                $title = get_the_title();
+                 ?>
+
+                <li><a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>"><?php echo $title; ?> </a></li>
+                <?php endwhile; ?>
+                <?php else : ?>
+                <li>Sorry, no posts were found.</li>
+            <?php endif;
+            wp_reset_query();?>
                     </ul>
                 </div>
                 <div class="clear"></div>
@@ -87,7 +110,12 @@
         </a><!-- Logo -->
         <div class="access">
                 <?php wp_nav_menu( array( 'container_class' => 'menu-header', 'theme_location' => 'primary' ) ); ?>
-                <?php get_search_form(); ?>
+               <div class="search-bar">
+            <form action="<?php bloginfo('home'); ?>" id="searchform" method="get" role="search">
+                   <input type="text" id="s" name="s" value="Search" onblur="if (this.value == '') {this.value = 'Search';}" onfocus="if (this.value == 'Search') {this.value = '';}" >
+                    <input type="submit" value="Search" id="searchsubmit" class="searchbtn">
+            </form>
+            </div>
         </div><!-- #access -->
         <div class="clear"></div>
     </div><!-- #header -->

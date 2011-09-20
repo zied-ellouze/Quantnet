@@ -42,11 +42,19 @@
 			<div class="main-entry-desc">
 				<?php the_content(); ?>
                 <p class="wiki-link">Wiki Link: <a href="<?php echo $review_details['wiki_link'];?>" target="_blank" title="<?php the_title();?> - Wikipedia"><?php echo $review_details['wiki_link'];?></a></p>
-               
+               	<a name="review"></a>
                 <?php
-               echo $addreview =  "<p class='write-a-review'><a href='' onClick='jQuery(\"#add_program_review\").toggle(\"slow\"); return false;'>Add A Review</a></p><div id='add_program_review' style='display: none;'>".do_shortcode("[gravityform id=1 name=AddReview ajax=true]")."</div>";
+               echo $addreview =  "<p class='write-a-review'><a href='' onClick='jQuery(\"#add_program_review\").toggle(\"slow\"); return false;'>Add A Review</a></p><div id='add_program_review' style='display: none;'>".do_shortcode("[gravityform id=1 name=AddReview]")."</div>";
 			   // echo $add_r = check_for_gravity_form( $addreview);
 			   echo  '<script type="text/javascript">var count_files=0; var total_files = jQuery("input:file").length; jQuery("input:file").each(function(){ var id = this.id; var field_id = id.replace("input_","field_"); if(count_files != 0){ jQuery("#"+field_id).attr("style","display: none;"); } if(count_files == (total_files-1)){ jQuery("#"+field_id).after("<li><p><a href=\'\' onClick=\'showNext(); return false;\' class=\'addimage\'>Add Another Image</a></p></li>"); } count_files++; }); function showNext(){ jQuery("input:file").each(function(){ var id = this.id; var field_id = id.replace("input_","field_"); if(!jQuery("#"+field_id).is(":visible")){ jQuery("#"+field_id).show("slow"); return false; } }); }</script>';
+			   
+			   if((isset($_GET['r']) && $_GET['r'] == "t") || $_POST):
+			   ?>
+			   <script type="text/javascript">
+			   jQuery("#add_program_review").toggle("slow");
+			   </script>
+			   <?php
+			   endif;
 				?>
 			</div>
             </div>
@@ -55,8 +63,12 @@
 	<?php //end loop ?>
 	<div class="reviews">
 		<?php
-		//quantnet_set_reviews_ranking();
-		//exit();
+		$direction = "ASC";
+		if(isset($_GET['dir'])):
+			if($_GET['dir']=="desc"):
+				$direction = "DESC";
+			endif;
+		endif;
 		//Get all of the programs to be displayed
 		if($_GET['sort'] == "date"):
 			$wpsc_query = new WP_Query( 
@@ -64,8 +76,8 @@
 					'post_type'=>'quantnet_review',
 					'post_status'=>'publish',
 					'post_parent'=>get_the_id(),
-					'orderby'=>'post_date',
-					'order'=>'DESC'
+					'orderby'=>'date',
+					'order'=>$direction
 				)
 			);
 		else:
@@ -76,7 +88,7 @@
 					'post_parent'=>get_the_id(),
 					'meta_key'=>'rating',
 					'orderby'=>'meta_value_num',
-					'order'=>'DESC'
+					'order'=>$direction
 				)
 			);
 		endif;
@@ -84,7 +96,7 @@
 		<?php if($wpsc_query->have_posts()) : ?>
 			<div class="ratesorting">
             	<span class="sortby"></span>
-				<a href="<?php echo parse_url($_SERVER['REQUEST_URI'],PHP_URL_PATH);?>" class="desc">Rating</a><a href="<?php echo parse_url($_SERVER['REQUEST_URI'],PHP_URL_PATH);?>?sort=date" class="brder">Date</a>
+				<a href="?sort=rating&dir=<?php if($_GET['dir']=="desc"&&$_GET["sort"]=="rating") echo "asc"; else echo "desc"; ?>" class="<?php if($_GET['sort']=="rating"&&isset($_GET['dir'])) echo $_GET['dir']." bld"; else if($_GET['sort']=="rating"||!isset($_GET['sort'])) echo "asc bld"; ?>">Rating</a><a href="?sort=date&dir=<?php if($_GET['dir']=="asc"&&$_GET["sort"]=="date") echo "desc"; else echo "asc"; ?>" id="brder" class="<?php if($_GET['sort']=="date"&&isset($_GET['dir'])) echo $_GET['dir']." bld"; else if($_GET['sort']=="date") echo "asc bld"; ?>">Date</a>
 			</div>
 			<?php foreach($wpsc_query->get_posts() as $post) : setup_postdata($post); $images = quant_get_all_review_images(get_the_id(), 4); ?>
 				<?php //start loop ?>

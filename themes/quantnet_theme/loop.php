@@ -124,7 +124,7 @@
                         <?php
 			//for job post description page
 			$servrs = explode('/', $_SERVER[REQUEST_URI]);	 
-			if($servrs[3] == '') //for getting all the posts other than that of job posts
+			if($servrs[2] == '') //for getting all the posts other than that of job posts
                    {
 			$comments = $wpdb->get_row("SELECT comment_count as count FROM wp_posts WHERE ID = '$post->ID'");
 			$commentcount = $comments->count;

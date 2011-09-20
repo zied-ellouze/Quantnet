@@ -47,10 +47,10 @@
         <!--showing author's bio, and his 5 latest posts-->
         <!--showing latest Reviews-->
         <div class="reviews-section">
-            <h2 class='widget-title'>LATEST REVIEWS <span>(<a href="<?php bloginfo('url'); ?>/reviews/">view all</a>)</span></h2>
+            <h2 class='widget-title'>LATEST REVIEWS <span>(<a href="<?php bloginfo('url'); ?>/programs/">view all</a>)</span></h2>
             <!--for showing two latest posts-->
             <ul>
-                <?php query_posts('cat=36&showposts=2&orderby=date&order=DESC'); ?>
+                <?php query_posts('cat=74&showposts=2&orderby=date&order=DESC'); ?>
                     <?php if ( have_posts() ) : while ( have_posts() ) : the_post();
                         $rating = get_post_meta($post->ID, 'review_rate',true);
                             if($rating == '1') {  $class = "class = 'rating_1 latestrating'";}
@@ -73,7 +73,7 @@
                      <?php endwhile; else: ?>
                      <p><?php _e('No posts by this author.'); ?></p>
                 <?php endif;wp_reset_query(); ?>
-                <?php query_posts('cat=36&showposts=3&orderby=date&order=DESC&offset=2'); ?>
+                <?php query_posts('cat=74&showposts=3&orderby=date&order=DESC&offset=2'); ?>
                     <?php if ( have_posts() ) : while ( have_posts() ) : the_post();
                         $rating = get_post_meta($post->ID, 'review_rate',true);
                             $prog_name = get_post_meta($post->ID, 'program_name', true);

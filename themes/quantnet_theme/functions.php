@@ -94,8 +94,6 @@ $role = get_role( 'author' );
 // add "company" to this role object
 $role->add_cap( 'company' );
 
-
-
 function dropdown_tag_cloud( $args = '' ) {
 	$defaults = array(
 		'smallest' => 8, 'largest' => 22, 'unit' => 'pt', 'number' => 45,
@@ -258,7 +256,7 @@ function preview_text($TEXT, $LIMIT, $TAGS = 0, $AFTER) {
 	//echo $TEXT;
     // STRIP TAGS IF PREVIEW IS WITHOUT HTML
     if ($TAGS == 0) $TEXT = preg_replace('/\s\s+/', ' ', strip_tags($TEXT));
-	$TEXT = preg_replace("/\[caption.*\[\/caption\]/", '', $TEXT);
+
     // IF STRLEN IS SMALLER THAN LIMIT RETURN
     if (strlen($TEXT) < $LIMIT) return $TEXT;
 
@@ -812,12 +810,14 @@ if(!function_exists('quant_get_all_program_images')):
 		
 		$program_options = get_post_meta($program_id, 'quant_program_options', true);
 		if(is_array($program_options['images'])):
-			$images = $program_options['images'];
+			$program_images = $program_options['images'];
 		else:
-			$images = array();
+			$program_images = array();
 		endif;
 		
-		//TODO combine review images with an array_merge on the array $images
+		$review_images = quant_get_all_review_images($program_id, 50);
+		
+		$images = array_merge($program_images,$review_images);
 		
 		return $images;
 	}
@@ -986,9 +986,8 @@ if(!function_exists('quantnet_program_save')):
 	  	update_post_meta($post_id, "average_rating", "NA");
 	  endif;
 	  
-	  quantnet_set_reviews_ranking();
-	  
 	  update_post_meta($post_id, "number_of_reviews", "0");
+	  quantnet_set_reviews_ranking();
 		
 	  return true;
 	}
@@ -1129,6 +1128,8 @@ if(!function_exists('quantnet_review_details')):
 		if($id==null)
 			return;
 		$average_rating = get_post_meta($id, 'average_rating', true);
+		if(strlen($average_rating) == 0)
+			$average_rating = "NA";
 		$program_options = get_post_meta($id, 'quant_program_options', false);
 		if(strlen($program_options[0]["mfe_ranking"]) > 0):
 			$mfe_ranking = $program_options[0]['mfe_ranking'];
@@ -1165,9 +1166,9 @@ endif;
 if(!function_exists('quantnet_review_calculate_rating')):
 	function quantnet_review_calculate_rating($id){
 		global $wpdb;
-		$reviews = $wpdb->get_results("SELECT * FROM wp_rg_lead as l, wp_rg_lead_detail as ld WHERE l.post_id = '".$id."' AND l.id = ld.lead_id AND field_number = '26'");
+		$reviews = $wpdb->get_results("SELECT * FROM wp_rg_lead as l, wp_rg_lead_detail as ld WHERE l.post_id = '".$id."' AND l.id = ld.lead_id AND ld.field_number = '26'");
 		$total = count($reviews);
-		echo $total."<br>";
+		//mail('estolz@websitez.com', 'Reviews', $total);
 		if($total > 0):
 			foreach($reviews as $r):
 				$value += (Int)$r->value;
@@ -1193,7 +1194,6 @@ if(!function_exists('quantnet_review_update_post')):
 		$post->post_parent = $entry[41];
 		$post->post_status = "publish";
 		wp_update_post($post);
-		//mail("estolz@websitez.com", "Values", $entry[26]);
 		update_post_meta($entry["post_id"], 'rating', $entry[26]);
 	}
 endif;
@@ -1202,12 +1202,16 @@ if(!function_exists('quantnet_review_calculate_rating_after_submission')):
 	function quantnet_review_calculate_rating_after_submission($entry, $form){
 		global $wpdb;
 		//$entry[41] is the post id for the master review
-		//$update = $wpdb->query("UPDATE wp_rg_lead SET post_id = '".$entry[41]."' WHERE id = '".$entry["id"]."'");
+		$update = $wpdb->query("UPDATE wp_rg_lead SET post_id = '".$entry[41]."' WHERE id = '".$entry["id"]."'");
 		$rating = quantnet_review_calculate_rating($entry[41]);
 		update_post_meta($entry[41], 'average_rating', $rating);
 		$number_of_reviews = get_post_meta($entry[41], "number_of_reviews", true);
-		update_post_meta($entry[41], 'number_of_reviews', $number_of_reviews++);
-		quantnet_set_reviews_ranking();
+		if($number_of_reviews=="")
+			$number_of_reviews=0;
+		else
+			$number_of_reviews = (Int)$number_of_reviews;
+		$number_of_reviews = $number_of_reviews+1;
+		update_post_meta($entry[41], 'number_of_reviews', $number_of_reviews);
 	}
 endif;
 

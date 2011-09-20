@@ -26,10 +26,10 @@
             </div><!-- #site-info -->
             <div class="connectus">
                 <span>Connect With Us</span>
-                <a href="http://twitter.com/quantnet" class="twitter"></a>
-                <a href="http://facebook.com/quantnet" class="facebook"></a>
-                <a href="#" class="linkedin"></a>
-                <a href="#" class="youtube"></a>
+                <a href="http://twitter.com/quantnet" class="twitter" target="_blank"></a>
+                <a href="http://facebook.com/quantnet" class="facebook" target="_blank"></a>
+                <a href="http://www.linkedin.com/in/nguyenandy" class="linkedin" target="_blank"></a>
+                <!--<a href="#" class="youtube"></a>-->
             </div>
             <div id="site-generator">
                     <?php do_action( 'twentyten_credits' ); ?>
