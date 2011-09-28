@@ -1245,4 +1245,39 @@ if(!function_exists('quantnet_set_reviews_ranking')):
 		endif;
 	}
 endif;
+
+if(!function_exists('quantnet_total_reviews')):
+	function quantnet_total_reviews(){
+		$wpsc_query = new WP_Query( 
+			array(
+				'post_type'=>'quantnet_program',
+				'post_status'=>'publish',
+				'nopaging'=>'true'
+			)
+		);
+		
+		return $wpsc_query->post_count;
+	}
+endif;
+
+//function for displaying caption
+    function fb_img_caption_shortcode($attr, $content = null) {
+    // Allow plugins/themes to override the default caption template.
+    $output = apply_filters('img_caption_shortcode', '', $attr, $content);
+    if ( $output != '' )
+    return $output;
+    extract(shortcode_atts(array(
+    'id' => '',
+    'align' => 'alignnone',
+    'width' => '',
+    'caption' => ''
+    ), $attr));
+    if ( 1 > (int) $width || empty($caption) )
+    return $content;
+    if ( $id ) $id = 'id="' . $id . '" ';
+    return '<dl ' . $id . 'class="wp-caption ' . $align . '" style="width: ' . (10 + (int) $width) . 'px"><dt>'
+    . do_shortcode( $content ) . '</dt><dd class="wp-caption-text">' . $caption . '</dd></dl>';
+    }
+    add_shortcode('wp_caption', 'fb_img_caption_shortcode');
+    add_shortcode('caption', 'fb_img_caption_shortcode');
 ?>

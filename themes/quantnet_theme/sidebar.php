@@ -50,52 +50,70 @@
             <h2 class='widget-title'>LATEST REVIEWS <span>(<a href="<?php bloginfo('url'); ?>/programs/">view all</a>)</span></h2>
             <!--for showing two latest posts-->
             <ul>
-                <?php query_posts('cat=74&showposts=2&orderby=date&order=DESC'); ?>
-                    <?php if ( have_posts() ) : while ( have_posts() ) : the_post();
-                        $rating = get_post_meta($post->ID, 'review_rate',true);
-                            if($rating == '1') {  $class = "class = 'rating_1 latestrating'";}
-                            else if ($rating == '2') {  $class = "class = 'rating_2 latestrating'";}
-                            else if ($rating == '3') {  $class = "class = 'rating_3 latestrating'";}
-                            else if ($rating == '4') {  $class = "class = 'rating_4 latestrating'";}
-                            else if ($rating == '5') {  $class = "class = 'rating_5 latestrating'";}
-                            else if ($rating == '6') { $class = "class = 'rating_6 latestrating'";}
-                            else if ($rating == '7') {  $class = "class = 'rating_7 latestrating'";}
-                            else if ($rating == '8') {  $class = "class = 'rating_8 latestrating'";}
-                            else if ($rating == '9') {  $class = "class = 'rating_9 latestrating'";}
-                            else if ($rating == '10') {  $class = "class = 'rating_10 latestrating'";}
+                <?php $wpsc_query = new WP_Query( 
+				array(
+					'post_type'=>'quantnet_program',
+					'post_status'=>'publish',
+					'orderby'=>'date',
+					'order'=>'DESC',
+					'showposts'=>'2'
+				)
+			); ?>
+                    <?php  if($wpsc_query->have_posts()) : ?>
+                    <?php foreach($wpsc_query->get_posts() as $post) : setup_postdata($post); $review_details = quantnet_review_details(get_the_id()); 
+                        $rating = $review_details['average_rating'];
+                            if($rating <= '1') {  $class = "class = 'rating_1 latestrating'";}
+                            else if ($rating <= '2') {  $class = "class = 'rating_2 latestrating'";}
+                            else if ($rating <= '3') {  $class = "class = 'rating_3 latestrating'";}
+                            else if ($rating <= '4') {  $class = "class = 'rating_4 latestrating'";}
+                            else if ($rating <= '5') {  $class = "class = 'rating_5 latestrating'";}
+                            else if ($rating <= '6') { $class = "class = 'rating_6 latestrating'";}
+                            else if ($rating <= '7') {  $class = "class = 'rating_7 latestrating'";}
+                            else if ($rating <= '8') {  $class = "class = 'rating_8 latestrating'";}
+                            else if ($rating <= '9') {  $class = "class = 'rating_9 latestrating'";}
+                            else if ($rating <= '10') {  $class = "class = 'rating_10 latestrating'";}
                             $prog_name = get_post_meta($post->ID, 'program_name', true);
                             ?>
                          <li <?=$class?> >
-                                <a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link: <?php the_title(); ?>"><?php echo $prog_name; ?></a>
+                                <a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link: <?php the_title(); ?>"><?php the_title(); ?></a>
                                 <small><?php the_time('F jS, Y'); ?></small>
                                 <span class="rating" ><?=$rating;?></span>
                          </li>
-                     <?php endwhile; else: ?>
+                     <?php endforeach; else: ?>
                      <p><?php _e('No posts by this author.'); ?></p>
-                <?php endif;wp_reset_query(); ?>
-                <?php query_posts('cat=74&showposts=3&orderby=date&order=DESC&offset=2'); ?>
-                    <?php if ( have_posts() ) : while ( have_posts() ) : the_post();
-                        $rating = get_post_meta($post->ID, 'review_rate',true);
+                <?php endif; ?>
+                <?php $wpsc_query = new WP_Query( 
+				array(
+					'post_type'=>'quantnet_program',
+					'post_status'=>'publish',
+					'orderby'=>'date',
+					'order'=>'DESC',
+					'showposts'=>'3',
+					'offset'=> '2'
+				)
+			); ?>
+                    <?php  if($wpsc_query->have_posts()) : ?>
+                    <?php foreach($wpsc_query->get_posts() as $post) : setup_postdata($post); $review_details = quantnet_review_details(get_the_id()); 
+                        $ratings = $review_details['average_rating'];
+                            if($ratings <= '1') {  $class = "class = 'rating_1 '";}
+                            else if ($ratings <= '2') {  $class = "class = 'rating_2 '";}
+                            else if ($ratings <= '3') {  $class = "class = 'rating_3 '";}
+                            else if ($ratings <= '4') {  $class = "class = 'rating_4 '";}
+                            else if ($ratings <= '5') {  $class = "class = 'rating_5 '";}
+                            else if ($ratings <= '6') { $class = "class = 'rating_6 '";}
+                            else if ($ratings <= '7') {  $class = "class = 'rating_7 '";}
+                            else if ($ratings <= '8') {  $class = "class = 'rating_8 '";}
+                            else if ($ratings <= '9') {  $class = "class = 'rating_9 '";}
+                            else if ($ratings <= '10') {  $class = "class = 'rating_10 '";}
                             $prog_name = get_post_meta($post->ID, 'program_name', true);
-                            if($rating == '1') {  $class = "class = 'rating_1'";}
-                            else if ($rating == '2') {  $class = "class = 'rating_2'";}
-                            else if ($rating == '3') {  $class = "class = 'rating_3'";}
-                            else if ($rating == '4') {  $class = "class = 'rating_4'";}
-                            else if ($rating == '5') {  $class = "class = 'rating_5'";}
-                            else if ($rating == '6') { $class = "class = 'rating_6'";}
-                            else if ($rating == '7') {  $class = "class = 'rating_7'";}
-                            else if ($rating == '8') {  $class = "class = 'rating_8'";}
-                            else if ($rating == '9') {  $class = "class = 'rating_9'";}
-                            else if ($rating == '10') {  $class = "class = 'rating_10'";}
                             ?>
-                         <li <?=$class?>>
-                                <a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link: <?php the_title(); ?>"><?php echo $prog_name; ?></a>
+                         <li <?=$class?> >
+                                <a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link: <?php the_title(); ?>"><?php the_title(); ?></a>
                                 <small><?php the_time('F jS, Y'); ?></small>
-                                <span class="rating"><?=$rating;?></span>
+                                <span class="rating" ><?=$ratings;?></span>
                          </li>
-                     <?php endwhile; else: ?>
-                     <p><?php _e('No posts by this author.'); ?></p>
-                <?php endif;wp_reset_query(); ?>
+                     <?php endforeach;?>
+                <?php endif; ?>
             </ul>
          </div>
         <!--showing Big Banner Ads-->

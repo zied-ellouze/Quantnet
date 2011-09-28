@@ -12,30 +12,35 @@
         	<div class="gallerycontent">
             <h2><?php the_title(); ?></h2>
 			<div class="galleryimage">
+            
+           
 				<?php
 				$images = quant_get_all_program_images(get_the_id(), 4);
-				if(count($images) > 0): $i=0;
+				if(count($images) > 0): $i=0; ?>
+                <div class="bigimage">
+				<a href="/gallery/?id=<?php the_id();?>&picture_id=<?php echo md5($images[0]); ?>"><img src="<?php echo $images[0]; ?>" width="570" border="0">
+			</div>
+                 <div class="small-image">
+                <?php
 					foreach($images as $image):
 						if($i==0):
-							?>
-							<div class="bigimage">
-								<a href="/gallery/?id=<?php the_id();?>&picture_id=<?php echo md5($image); ?>"><img src="<?php echo $image; ?>" width="570" border="0">
-							</div>
-							<?php
+				
 						else:
 							?>
-							<div class="small-image">
-								<a href="/gallery/?id=<?php the_id();?>&picture_id=<?php echo md5($image); ?>"><img src="<?php echo $image; ?>" width="115" border="0"></a>
+							<div>
+								<a href="/gallery/?id=<?php the_id();?>&picture_id=<?php echo md5($image); ?>"><img src="<?php echo $image; ?>"  border="0"></a>
 							</div>
 							<?php
 						endif;
 						$i++;
-					endforeach;
+					endforeach;?>
+                    </div>
+                    <?php
 				endif;
 				?>
 			</div>
 			<div class="individual-entry">
-				<div class="rank1"><span>#<?php echo $review_details['ranking']; ?></span> of 1<br /> programs reviewed</div>
+				<div class="rank1"><span>#<?php echo $review_details['ranking']; ?></span> of <?php echo quantnet_total_reviews(); ?><br /> programs reviewed</div>
 				<div class="rank2"><span>Ranked #<?php echo $review_details['mfe_ranking']; ?></span> in<br /> Quantnet MFE Ranking</div>
 				<div class="rank3">Average rating:<br /> <span class="rating"><?php echo $review_details['average_rating']; ?></span>/10 (<?php echo $review_details['total_reviews'];?> reviews)</div>
 			</div>

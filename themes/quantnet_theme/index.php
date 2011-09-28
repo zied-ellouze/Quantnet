@@ -48,7 +48,7 @@
                     <div class="clear"></div>
                     <div class="post-meta">
                         <div class="post-comment">
-                            <span><?php echo $fullcomments; ?></span>
+                            <span><a rel="nofollow" href="<?php the_permalink(); ?>#comments"><?php echo $fullcomments; ?></a></span>
                         </div>
                         <div class="fblike"> <fb:like href="<?php the_permalink(); ?>" width="50" height="31"  layout="button_count" show_faces="false"></fb:like></div>
                         <div class="posted-on"><em>Posted on <?php the_date('M jS, Y'); ?></em></div>

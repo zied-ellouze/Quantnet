@@ -145,8 +145,8 @@
                                     $commentcount = $comments->count;
                                     if($commentcount == 1): $commenttext = ''; endif;
                                     if($commentcount > 1 || $commentcount == 0): $commenttext = ''; endif;
-                                    $fullcomments = $commentcount.' '.$commenttext;
-                                    echo $fullcomments;  ?>
+                                    $fullcomments = $commentcount.' '.$commenttext;?>
+                                    <a rel="nofollow" href="<?php the_permalink(); ?>#comments"><?php echo $fullcomments;  ?></a>
                                 </span>
                             </div>
                             <div class="printlink"><?php if(function_exists('wp_print')) { print_link(); } ?> <?php// if(function_exists('wp_email')) { email_link(); } ?>  </div>
@@ -171,8 +171,8 @@ src="http://platform.twitter.com/widgets/tweet_button.html?url=<?php the_permali
                                     $commentcount = $comments->count;
                                     if($commentcount == 1): $commenttext = ''; endif;
                                     if($commentcount > 1 || $commentcount == 0): $commenttext = ''; endif;
-                                    $fullcomments = $commentcount.' '.$commenttext;
-                                    echo $fullcomments;  ?>
+                                    $fullcomments = $commentcount.' '.$commenttext;?>
+                                    <a rel="nofollow" href="<?php the_permalink(); ?>#comments"><?php echo $fullcomments;  ?></a>
                                 </span>
                             </div>
                             <div class="printlink"><?php if(function_exists('wp_print')) { print_link(); } ?> <?php// if(function_exists('wp_email')) { email_link(); } ?>  </div>
@@ -204,11 +204,14 @@ src="http://platform.twitter.com/widgets/tweet_button.html?url=<?php the_permali
 										the_post_thumbnail('thumbnail'); //for featured thumbail
 										} else {
 										catch_that_image(); //for first post image
-										}
+										}?>
+								
 									
-										if(is_home()) {   ?>
-                                    <?php $content1 = get_the_content($post->ID); $LIMIT1='300'; ?>
-									<?php echo preview_text($content1, $LIMIT1, $TAGS = 0, ''); //getting limited content for homepage ?>
+									<?php	if(is_home()) {   ?>
+                                    <?php $content1 = get_the_content($post->ID); $LIMIT1='300'; 
+									$content_home = strip_shortcodes($content1);
+									?>
+									<?php echo preview_text($content_home, $LIMIT1, $TAGS = 0, ''); //getting limited content for homepage ?>
                                     
                                     <?php } else { ?>
 									<?php the_excerpt(); ?>
@@ -244,8 +247,8 @@ src="http://platform.twitter.com/widgets/tweet_button.html?url=<?php the_permali
                                         $commentcount = $comments->count;
                                         if($commentcount == 1): $commenttext = ''; endif;
                                         if($commentcount > 1 || $commentcount == 0): $commenttext = ''; endif;
-                                        $fullcomments = $commentcount.' '.$commenttext;
-                                        echo $fullcomments; ?>
+                                        $fullcomments = $commentcount.' '.$commenttext;?>
+                                    <a rel="nofollow" href="<?php the_permalink(); ?>#comments"><?php echo $fullcomments;  ?></a>
                                         <?php if(!is_page('Submit A Review for Your Program'))//for checking Submit page
                                          { ?>
                                     </span>

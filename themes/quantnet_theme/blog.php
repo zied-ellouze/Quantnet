@@ -51,8 +51,8 @@ get_header(); ?>
                         $commentcount = $comments->count;
                         if($commentcount == 1): $commenttext = ''; endif;
                         if($commentcount > 1 || $commentcount == 0): $commenttext = ''; endif;
-                        $fullcomments = $commentcount.' '.$commenttext;
-                        echo "<span>".$fullcomments."</span>";  ?>
+                        $fullcomments = $commentcount.' '.$commenttext;?>
+                                    <span><a rel="nofollow" href="<?php the_permalink(); ?>#comments"><?php echo $fullcomments;  ?></a></span>
                     </div>
                     <div class="fblike"><fb:like profile_id="" href="<?php the_permalink(); ?>" width="50" height="31"  layout="button_count" show_faces="false"></fb:like></div>
                     <div class="posted-on"><em>Posted On <?php the_date('M jS, Y'); ?></em></div>
