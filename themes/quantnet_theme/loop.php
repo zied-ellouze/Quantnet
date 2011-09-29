@@ -21,7 +21,7 @@
 
 <?php if(is_home()) {
   $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-  query_posts('cat=-1&orderby=date&order=DESC&paged='.$paged);//not including featured category
+  query_posts('cat=-1,-36&orderby=date&order=DESC&paged='.$paged);//not including featured category
  } ?>
 <?php /* If there are no posts to display, such as an empty archive page */ ?>
 <?php if ( ! have_posts() ) : ?>

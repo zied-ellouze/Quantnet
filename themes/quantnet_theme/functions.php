@@ -1270,14 +1270,27 @@ endif;
     'id' => '',
     'align' => 'alignnone',
     'width' => '',
-    'caption' => ''
+    'caption' => '',
+	'text'=> ''
     ), $attr));
     if ( 1 > (int) $width || empty($caption) )
     return $content;
     if ( $id ) $id = 'id="' . $id . '" ';
     return '<dl ' . $id . 'class="wp-caption ' . $align . '" style="width: ' . (10 + (int) $width) . 'px"><dt>'
-    . do_shortcode( $content ) . '</dt><dd class="wp-caption-text">' . $caption . '</dd></dl>';
+    . do_shortcode( $content ) . '</dt><dd class="wp-caption-credit">' . $text . '</dd><dd class="wp-caption-text">' . $caption . '</dd></dl>';
     }
     add_shortcode('wp_caption', 'fb_img_caption_shortcode');
     add_shortcode('caption', 'fb_img_caption_shortcode');
+	
+	//function for removing attcredit from content
+	function remove_attr($string) {
+	$string = str_ireplace('[attcredit text="', '', $string);
+	$string = str_ireplace('Flickr"]', 'Flickr', $string);
+	$string = str_ireplace('Craig Ruttle"]', 'Craig Ruttle', $string);
+	$string = str_ireplace('Commons"]', 'Commons', $string);
+	
+	
+	return $string;
+	}
+	add_filter('the_content', 'remove_attr');
 ?>
